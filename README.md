@@ -3,9 +3,8 @@
 > Example layouts with [CSS Grid](https://gridbyexample.com/) and the [Tailwind CSS framework](https://tailwindcss.com/).
 
 * [Vue.js](https://vuejs.org/)
-* [Tailwind CSS](https://tailwindcss.com/) as UI framework
+* [Tailwind CSS](https://tailwindcss.com/) for UI framework.
 * [Vue-Meta](https://github.com/declandewet/vue-meta) for html meta injection.
-* [React-Snap](https://github.com/stereobooster/react-snap) for pre-rendering after build.
 
 ## Build Setup
 
