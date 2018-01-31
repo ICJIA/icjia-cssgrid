@@ -83,6 +83,8 @@
 </script>
 
 <style scoped>
+    :root {}
+
     pre {
         margin-top: 25px !important;
         margin-bottom: 25px !important;

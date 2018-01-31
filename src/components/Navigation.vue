@@ -94,7 +94,7 @@
     .centered-right {
         position: fixed;
         top: 50%;
-        left: 97%;
+        left: 95%;
         /* bring your own prefixes */
         transform: translate(-50%, -50%);
     }
@@ -102,7 +102,7 @@
     .centered-left {
         position: fixed;
         top: 50%;
-        left: 3%;
+        left: 5%;
         /* bring your own prefixes */
         transform: translate(-50%, -50%);
     }
@@ -110,5 +110,19 @@
     .arrow {
         background: #ccc;
         padding: 10px;
+    }
+
+    .arrow:hover {
+        /*box-shadow: 0px 0px 150px #000000;*/
+        z-index: 2;
+        -webkit-transition: all 200ms ease-in;
+        -webkit-transform: scale(1.1);
+        -ms-transition: all 200ms ease-in;
+        -ms-transform: scale(1.1);
+        -moz-transition: all 200ms ease-in;
+        -moz-transform: scale(1.1);
+        transition: all 200ms ease-in;
+        transform: scale(1.05);
+        cursor: pointer;
     }
 </style>
