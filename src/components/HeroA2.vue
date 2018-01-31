@@ -14,42 +14,42 @@
 </template>
 
 <style scoped>
-    /* grid styles ------------------------------------ */
+/* grid styles ------------------------------------ */
 
-    .container-grid {
-        height: 100vh;
-        display: grid;
-        grid-gap: 3px;
-        grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: 40px auto 40px;
-        grid-template-areas: "h h h h h h h h h h h h" "m m c c c c c c c c c c" "f f f f f f f f f f f f";
-    }
+.container-grid {
+    height: 100vh;
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 40px auto 40px;
+    grid-template-areas: "h h h h h h h h h h h h" "m m c c c c c c c c c c" "f f f f f f f f f f f f";
+}
 
-    .header {
-        grid-area: h;
-    }
+.header {
+    grid-area: h;
+}
 
-    .menu {
-        grid-area: m;
-    }
+.menu {
+    grid-area: m;
+}
 
-    .content {
-        grid-area: c;
-    }
+.content {
+    grid-area: c;
+}
 
-    .footer {
-        grid-area: f;
-    }
+.footer {
+    grid-area: f;
+}
 
-    .container-grid>div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 2em;
-        color: #ffeead;
-    }
+.container-grid > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: #ffeead;
+}
 
-    /* section {
+/* section {
         box-sizing: border-box;
         background-color: #ffeead;
         height: 100%;
@@ -57,19 +57,19 @@
         margin: 0px;
     } */
 
-    .container-grid>div:nth-child(1n) {
-        background-color: #96ceb4;
-    }
+.container-grid > div:nth-child(1n) {
+    background-color: #96ceb4;
+}
 
-    .container-grid>div:nth-child(3n) {
-        background-color: #88d8b0;
-    }
+.container-grid > div:nth-child(3n) {
+    background-color: #88d8b0;
+}
 
-    .container-grid>div:nth-child(2n) {
-        background-color: #ff6f69;
-    }
+.container-grid > div:nth-child(2n) {
+    background-color: #ff6f69;
+}
 
-    .container-grid>div:nth-child(4n) {
-        background-color: #ffcc5c;
-    }
+.container-grid > div:nth-child(4n) {
+    background-color: #ffcc5c;
+}
 </style>
