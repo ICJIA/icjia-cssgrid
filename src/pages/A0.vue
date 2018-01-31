@@ -41,7 +41,7 @@
             </p>
 
             <figure>
-                <img src="../assets/hero01.jpg" />
+                <img src="../assets/hero01-min.jpg" />
             </figure>
             <h2 v-dummy="10"></h2>
             <p v-dummy="100">
