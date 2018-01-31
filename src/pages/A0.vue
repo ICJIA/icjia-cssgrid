@@ -56,7 +56,7 @@
 
 <script>
     import Prism from "vue-prism-component";
-    import Hero from "@/components/Hero";
+    import Hero from "@/components/HeroA0";
     import { sample01, sample02 } from "@/code";
 
     export default {

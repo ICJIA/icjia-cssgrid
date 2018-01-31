@@ -3,7 +3,7 @@
     <section class="hero">
         <div class="message">
 
-            <div class="title">Sample Article Layout</div>
+            <div class="title">Sample Article Layout #1</div>
             <br>
             <div class="title">With Tailwind and CSS Grid</div>
 

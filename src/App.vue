@@ -9,7 +9,6 @@
 <script>
 
   import MyFooter from '@/components/Footer'
-  import Hero from '@/components/Hero'
   import Navigation from '@/components/Navigation'
   import metaInfo from './meta'
   import router from "./router";
@@ -37,7 +36,6 @@
     },
     components: {
       MyFooter,
-      Hero,
       Navigation
 
     }
