@@ -25,7 +25,7 @@
         width: 100%;
         height: 750px;
         padding: 45px 12% 0 12%;
-        background-image: url("../assets/hero02.jpg");
+        background-image: url("../assets/hero02-min.jpg");
         z-index: -1;
         background-size: cover;
         background-position: center;
