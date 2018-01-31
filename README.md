@@ -1,10 +1,15 @@
-# tailwindcss
+# ICJIA CSS Grid demos with Tailwind CSS
 
-> A Vue.js project
+> Example layouts with [CSS Grid](https://gridbyexample.com/) and the [Tailwind CSS framework](https://tailwindcss.com/).
+
+* [Vue.js](https://vuejs.org/)
+* [Tailwind CSS](https://tailwindcss.com/) as UI framework
+* [Vue-Meta](https://github.com/declandewet/vue-meta) for html meta injection.
+* [React-Snap](https://github.com/stereobooster/react-snap) for pre-rendering after build.
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
@@ -17,5 +22,3 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
