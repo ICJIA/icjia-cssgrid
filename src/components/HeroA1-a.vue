@@ -25,8 +25,10 @@
                     <p v-dummy="6"></p>
                 </div>
                 <div class="publication-3">
-                    <h3>publication-3</h3>
-                    <p v-dummy="6"></p>
+                    <h3>Modified from:</h3>
+                    <p>
+                        <a style="color: #ccc; text-transform: lowercase;" href="https://codepen.io/rachelandrew/pres/QKwvxJ">http://bit.ly/2DQ98nQ</a>
+                    </p>
 
                 </div>
 
@@ -34,6 +36,9 @@
 
             </div>
         </div>
+
+
+
 
     </section>
 
@@ -64,7 +69,7 @@
 
     .home-hero>.square h3,
         {
-        font-family: 'Lato', sans-serif;
+        font-family: ' Lato ', sans-serif;
         text-transform: uppercase;
     }
 

@@ -4,6 +4,12 @@
 
         <hero />
 
+        <div class="mt-2 ml-4 mb-8 text-sm">
+            <p>Based on CSS Grid article layout from:
+                <a href="">https://scrimba.com/p/pWqLHa/cdp76sD</a>
+            </p>
+        </div>
+
         <article class="px-1 text-grey-darkest leading-normal">
 
 
