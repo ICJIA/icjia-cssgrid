@@ -41,7 +41,7 @@
             </p>
 
             <figure>
-                <img src="../assets/hero01-min.jpg" />
+                <img src="../assets/hero01.jpg" />
             </figure>
             <h2 v-dummy="10"></h2>
             <p v-dummy="100">
@@ -70,7 +70,7 @@
             };
         },
         metaInfo: {
-            title: 'My Awesome Webapp',
+            // title: 'My Awesome Webapp',
             // override the parent template and just use the above title only
             // titleTemplate: null
         },

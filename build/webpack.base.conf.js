@@ -56,44 +56,44 @@ module.exports = {
           resolve("node_modules/webpack-dev-server/client")
         ]
       },
-      {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: "url-loader",
-        options: {
-          limit: 10000,
-          name: utils.assetsPath("img/[name].[hash:7].[ext]")
-        }
-      },
       // {
       //   test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-      //   use: [
-      //     `file-loader?name=${utils.assetsPath("img/[name].[hash:7].[ext]")}`,
-      //     {
-      //       loader: "image-webpack-loader",
-      //       options: {
-      //         mozjpeg: {
-      //           progressive: false,
-      //           quality: 30
-      //         },
-      //         // optipng.enabled: false will disable optipng
-      //         optipng: {
-      //           enabled: false
-      //         },
-      //         pngquant: {
-      //           quality: "65-90",
-      //           speed: 4
-      //         },
-      //         gifsicle: {
-      //           interlaced: false
-      //         },
-      //         // the webp option will enable WEBP
-      //         webp: {
-      //           quality: 75
-      //         }
-      //       }
-      //     }
-      //   ]
+      //   loader: "url-loader",
+      //   options: {
+      //     limit: 10000,
+      //     name: utils.assetsPath("img/[name].[hash:7].[ext]")
+      //   }
       // },
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        use: [
+          `file-loader?name=${utils.assetsPath("img/[name].[hash:7].[ext]")}`,
+          {
+            loader: "image-webpack-loader",
+            options: {
+              mozjpeg: {
+                progressive: false,
+                quality: 30
+              }
+              // optipng.enabled: false will disable optipng
+              // optipng: {
+              //   enabled: false
+              // },
+              // pngquant: {
+              //   quality: "65-90",
+              //   speed: 4
+              // },
+              // gifsicle: {
+              //   interlaced: false
+              // },
+              // the webp option will enable WEBP
+              // webp: {
+              //   quality: 75
+              // }
+            }
+          }
+        ]
+      },
 
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
