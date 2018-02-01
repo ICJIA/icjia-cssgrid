@@ -77,6 +77,66 @@
             </div>
 
 
+            <div class="secondary-content mt-4 shadow-md">
+
+                <div class="spotlight">
+                    <div class="spotlight-text">
+                        <h3 class="spotlight-title text-sm font-semibold text-black pl-2 pt-2 pr-2" v-dummy="5"></h3>
+                        <p v-dummy="30" class="spotlight-blurb text-sm text-grey-darker pl-2 pt-4 pr-2"></p>
+                    </div>
+                    <img v-dummy:400x400> </div>
+                <div class="secondary-news-1">
+                    <div class="news-item pl-4 pt-2 pr-4 pb-2">
+                        <div class="news-item-text">
+                            <h3 class="news-item-title text-base font-semibold text-black mb-2" v-dummy="6"></h3>
+
+                            <p v-dummy="30" class="text-sm text-grey-darker"></p>.
+                        </div>
+                    </div>
+                    <div class="news-item pl-4 pt-2 pr-4 pb-2">
+                        <div class="news-item-text">
+                            <h3 class="news-item-title text-base font-semibold text-black mb-2" v-dummy="6"></h3>
+                            <p v-dummy="30" class="spotlight-blurb text-sm text-grey-darker "></p>.
+                        </div>
+                    </div>
+                </div>
+                <div class="secondary-news-2">
+                    <div class="news-item pl-4 pt-2 pr-4 pb-2">
+                        <div class="news-item-text">
+                            <h3 class="news-item-title text-base font-semibold text-black mb-2" v-dummy="6"></h3>
+                            <p v-dummy="30" class="spotlight-blurb text-sm text-grey-darker"></p>.
+                        </div>
+                    </div>
+                    <div class="news-item pl-4 pt-2 pr-4 pb-2">
+                        <div class="news-item-text">
+                            <h3 class="news-item-title text-base font-semibold text-black mb-2" v-dummy="6"></h3>
+                            <p v-dummy="30" class="spotlight-blurb text-sm text-grey-darker"></p>.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="tertiary-content mt-4 shadow-md">
+                <div class="meetings">
+                    Upcoming meetings
+                </div>
+                <div class="latest">
+                    Latest news
+                </div>
+                <div class="popular">
+                    Popular
+                </div>
+            </div>
+
+
+
+
+
+
 
 
 
@@ -102,7 +162,8 @@
     }
 
     #mosaic {
-        background: #fff
+        background: #fefefe;
+        padding-bottom: 30px;
     }
 
     .wrapper {
@@ -203,7 +264,11 @@
 
 
 
-    /* body content */
+    /**
+     * 
+     * Primary content 
+     * 
+     */
 
     .container-body-content {
         margin-left: 50px;
@@ -278,7 +343,9 @@
         text-transform: uppercase;
     }
 
-    .story-block:hover {
+    .story-block:hover,
+    .spotlight:hover,
+    .news-item:hover {
         filter: grayscale(100%);
         box-shadow: 0px 0px 50px #000000;
         z-index: 200;
@@ -296,7 +363,78 @@
     }
 
 
-    /** spotlight **/
+    /**
+     * 
+     * secondary content
+     * 
+     */
+
+    .secondary-content {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-auto-rows: minmax(250px, auto);
+        grid-gap: 2px;
+        grid-template-areas: "spo spo spo spo sn1 sn1 sn1 sn1 sn2 sn2 sn2 sn2"
+    }
+
+    .secondary-news-1 {
+        grid-area: sn1;
+        display: grid;
+        grid-gap: 1px;
+    }
+
+    .secondary-news-2 {
+        grid-area: sn2;
+        display: grid;
+        grid-gap: 1px;
+    }
+
+    .news-item {
+        background: #eee;
+    }
+
+    .spotlight {
+        grid-area: spo;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: minmax(50px, auto);
+        grid-template-areas: "spo-title spo-img" "spo-blurb spo-img"
+    }
+
+    .spotlight-title {
+
+        width: 100%;
+    }
+
+    .spotlight-blurb {
+        grid-area: spo-blurb
+    }
+
+    .spotlight img {
+        vertical-align: middle;
+        background-size: cover;
+        grid-area: spo-img;
+        max-height: 300px;
+        height: 100%;
+        justify-self: end;
+    }
+
+    .news-item-text p {
+        display: inline;
+
+    }
+
+    /** 
+     * 
+     * Tertiary content
+     * 
+     */
+
+    /**
+     * 
+     * Media queries
+     * 
+     */
 
     @media (max-width: 700px) {
         .wrapper {
@@ -325,6 +463,19 @@
             display: grid;
             grid-template-columns: 1fr;
             grid-gap: 15px;
+        }
+
+        .secondary-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-auto-rows: minmax(150px, auto);
+            grid-gap: 2px;
+            grid-template-areas: "spo" "sn1" "sn2"
+        }
+
+        #mosaic {
+            margin-left: 15px;
+            margin-right: 15px;
         }
 
 

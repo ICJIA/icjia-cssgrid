@@ -5,9 +5,9 @@
 </template>
 
 <style>
-footer {
-    margin-top: 20px;
-    color: #ccc;
-    font-size: 12px;
-}
+    footer {
+
+        color: #ccc;
+        font-size: 12px;
+    }
 </style>
