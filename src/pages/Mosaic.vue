@@ -120,15 +120,24 @@
 
 
 
-            <div class="tertiary-content mt-4 shadow-md">
+            <div class="tertiary-content mt-8">
                 <div class="meetings">
-                    Upcoming meetings
+                    <div class="tertiary-header">
+                        <h2>Meetings</h2>
+                        <p>archive</p>
+                    </div>
                 </div>
                 <div class="latest">
-                    Latest news
+                    <div class="tertiary-header">
+                        <h2>Latest</h2>
+                        <p>archive</p>
+                    </div>
                 </div>
                 <div class="popular">
-                    Popular
+                    <div class="tertiary-header">
+                        <h2>Popular</h2>
+                        <p>see all</p>
+                    </div>
                 </div>
             </div>
 
@@ -162,7 +171,7 @@
     }
 
     #mosaic {
-        background: #fefefe;
+        background: #fff;
         padding-bottom: 30px;
     }
 
@@ -429,6 +438,43 @@
      * Tertiary content
      * 
      */
+
+    .tertiary-content {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-gap: 20px;
+        grid-auto-rows: minmax(150px, auto);
+        grid-template-areas: "meet lat pop"
+    }
+
+    .tertiary-header {
+        border-bottom: 1px solid #ccc;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
+
+    .tertiary-header h2 {}
+
+    .tertiary-header p {
+
+        margin: 5px;
+
+    }
+
+    .meetings {
+        grid-area: meet;
+    }
+
+    .latest {
+        grid-area: lat;
+    }
+
+    .popular {
+        grid-area: pop;
+    }
+
 
     /**
      * 
