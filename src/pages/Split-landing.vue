@@ -16,7 +16,7 @@
         <section>
             <div class="mt-8 text-center">
                 <p>A CSS grid version of:
-                    <a href="">https://codepen.io/bradtraversy/pen/dJzzdB</a>
+                    <a href="https://codepen.io/bradtraversy/pen/dJzzdB40">https://codepen.io/bradtraversy/pen/dJzzdB</a>
                 </p>
             </div>
         </section>
@@ -41,7 +41,7 @@
         width: 100%;
         display: grid;
         grid-gap: 1px;
-        height: 400px;
+        height: 60vh;
         background: var(--container-bg-color);
     }
 
@@ -56,7 +56,7 @@
 
     .split.left {
         left: 0;
-        background: url("https://image.ibb.co/m56Czw/designer.jpg") center center no-repeat;
+        background: url("../assets/designer.jpg") center center no-repeat;
         background-size: cover;
         display: grid;
         grid-template-columns: 1fr;
@@ -100,7 +100,7 @@
 
     .split.right {
         right: 0;
-        background: url("https://image.ibb.co/m3ZbRb/programmer.png") center center no-repeat;
+        background: url("../assets/programmer.png") center center no-repeat;
         background-size: cover;
         display: grid;
     }

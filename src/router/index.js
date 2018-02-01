@@ -1,10 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
-import A0 from "@/pages/A0";
-import A1 from "@/pages/A1";
-import A2 from "@/pages/A2";
-import A3 from "@/pages/A3";
-import A4 from "@/pages/A4";
+import article from "@/pages/article";
+import mosaic from "@/pages/mosaic";
+import layoutSample from "@/pages/layout-sample";
+import splitLanding from "@/pages/split-landing";
 
 Vue.use(Router);
 
@@ -13,33 +12,29 @@ export default new Router({
   routes: [
     {
       path: "/",
-      redirect: "/A0"
+      redirect: "/article"
     },
     {
-      path: "/A0",
-      name: "A0",
-      component: A0
+      path: "/article",
+      name: "article",
+      component: article
     },
     {
-      path: "/A1",
-      name: "A1",
-      component: A1
+      path: "/mosaic",
+      name: "mosaic",
+      component: mosaic
     },
     {
-      path: "/A2",
-      name: "A2",
-      component: A2
+      path: "/layout-sample",
+      name: "layoutSample",
+      component: layoutSample
     },
     {
-      path: "/A3",
-      name: "A3",
-      component: A3
+      path: "/split-landing",
+      name: "splitLanding",
+      component: splitLanding
     },
-    {
-      path: "/A4",
-      name: "A4",
-      component: A4
-    },
-    { path: "/*", redirect: A0 }
+
+    { path: "/*", redirect: article }
   ]
 });

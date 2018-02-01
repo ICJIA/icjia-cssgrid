@@ -1,0 +1,335 @@
+<template>
+    <div id="mosaic" class="font-sans text-sm">
+        <div class="wrapper">
+            <div class="box main">
+                <span class="box-content">
+                    <h3 v-dummy="4"></h3>
+                    <div></div>
+                    <p v-dummy="4"></p>
+                </span>
+            </div>
+            <div class="box feature-1">
+                <span class="box-content">
+                    <h3 v-dummy="4"></h3>
+                    <div></div>
+                    <p v-dummy="4"></p>
+                </span>
+            </div>
+
+            <div class="box news-1">
+                <span class="box-content">
+                    <h3 v-dummy="4"></h3>
+                    <div></div>
+                    <p v-dummy="4"></p>
+                </span>
+            </div>
+            <div class="box news-2">
+                <span class="box-content">
+                    <h3 v-dummy="4"></h3>
+                    <div></div>
+                    <p v-dummy="4"></p>
+                </span>
+            </div>
+
+        </div>
+
+        <div class="container xl mx-auto">
+
+            <div class="body-content mt-2">
+                <div class="main-stories body-content-block">
+                    <div class="story-block shadow-md">
+                        <div class="photo">
+                            <!-- <img src="../assets/PTSD.jpg" /> -->
+                            <img v-dummy:400x300 />
+                        </div>
+                        <div class="title text-base font-semibold text-black pl-2 pt-2 pr-2" v-dummy="5"></div>
+                        <div class="blurb text-sm text-grey-darker" v-dummy="30"></div>
+
+                    </div>
+                    <div class="story-block shadow-md">
+                        <div class="photo">
+                            <img v-dummy:400x300 />
+                            <!-- <img src="../assets/TRC.jpg" /> -->
+                        </div>
+                        <div class="title text-base font-semibold text-black pl-2 pt-2 pr-2" v-dummy="5"></div>
+                        <div class="blurb text-sm text-grey-darker" v-dummy="30"></div>
+
+                    </div>
+
+
+                    <div class="story-block shadow-md">
+                        <div class="photo">
+                            <img v-dummy:400x300 />
+                            <!-- <img src="../assets/1human_trafficking.jpg" /> -->
+                        </div>
+                        <div class="title text-base font-semibold text-black pl-2 pt-2 pr-2" v-dummy="5"></div>
+                        <div class="blurb text-sm text-grey-darker" v-dummy="30"></div>
+                    </div>
+                    <div class="story-block shadow-md">
+                        <div class="photo">
+                            <img v-dummy:400x300 />
+                            <!-- <img src="../assets/Photo-Delivery-Report.jpg" /> -->
+                        </div>
+                        <div class="title text-base font-semibold text-black pl-2 pt-2 pr-2" v-dummy="5"></div>
+                        <div class="blurb text-sm text-grey-darker" v-dummy="30"></div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+
+</template>
+
+<script>
+    export default {
+        name: "A4",
+        mounted: function () { },
+        methods: {
+
+        }
+    };
+</script>
+
+<style scoped>
+    :root {
+        --scale-amount: scale(1.1);
+    }
+
+    #mosaic {
+        background: #fff
+    }
+
+    .wrapper {
+        width: 100%;
+        display: grid;
+        grid-gap: 1px;
+        margin-bottom: 10px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: minmax(75px, auto);
+        grid-template-areas: "m f1 n1" "m f1 n1" "m f1 n1" "m f1 n2" "m f1 n2" "m f1 n2";
+    }
+
+
+    .wrapper>* {
+        padding: 30px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: #333;
+        color: #fff;
+    }
+
+
+    .box {
+        background-color: #4e4e4e;
+        color: #fff;
+        padding: 20px;
+        font-size: 150%;
+    }
+
+
+    .box.main {
+        grid-area: m;
+        /* background-image: url(../assets/TRC.jpg); */
+        background-position: bottom right;
+        display: grid;
+    }
+
+
+    .box-content {
+        align-self: end;
+    }
+
+    .box-content h3 {
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .box-content p {
+        font-weight: 200;
+        font-size: 14px;
+    }
+
+    .feature-1 {
+        grid-area: f1;
+        /* background-image: url(../assets/VSPNeeds_photo.jpg); */
+        background-position: top left;
+        display: grid;
+        grid-auto-rows: auto;
+
+    }
+
+
+    .box h3 {
+        display: inline-block;
+        background: #fff;
+        color: #333 !important;
+        padding: 5px 3px 5px 10px;
+        margin-bottom: 5px;
+
+    }
+
+    .box.main h3:after {
+        content: '\A';
+        white-space: pre;
+
+    }
+
+    .box p {
+        display: inline-block;
+        background: #fff;
+        color: #333 !important;
+        padding: 5px;
+
+    }
+
+    .news-1 {
+        grid-area: n1;
+        /* background-image: url(../assets/Photo-Delivery-Report.jpg); */
+        background-position: top left;
+    }
+
+    .news-2 {
+        grid-area: n2;
+        /* background-image: url(../assets/assess.jpg); */
+        background-position: top left;
+    }
+
+
+
+    /* body content */
+
+    .container-body-content {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    .body-content {
+        width: 100%;
+        display: grid;
+        grid-gap: 1px;
+        grid-template-columns: repeat(12, 1fr);
+        grid-auto-rows: minmax(350px, auto);
+        grid-template-areas: "ms ms ms ms ms ms ms ms ms ms ms ms";
+    }
+
+    .body-content-block {
+        margin-top: 10px;
+        background-color: #fff;
+        color: #aaa;
+
+
+
+
+    }
+
+    .main-stories {
+        grid-area: ms;
+        margin: 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 15px;
+    }
+
+
+
+
+    .story-block {
+        /* background-color: #aaa; */
+        color: #fff;
+        padding: 0px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: 3fr 50px 1fr;
+
+
+    }
+
+    .story-block .photo {
+
+        background-repeat: no-repeat;
+        background-size: cover;
+
+    }
+
+    .story-block .photo img {
+        min-height: 300px;
+        width: 100%;
+        max-height: 300px;
+    }
+
+
+    .story-block .blurb {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+
+    }
+
+    .story-block h3 {
+        text-transform: uppercase;
+    }
+
+    .story-block:hover {
+        filter: grayscale(100%);
+        box-shadow: 0px 0px 50px #000000;
+        z-index: 200;
+        -webkit-transition: all 200ms ease-in;
+        -webkit-transform: scale(1.05);
+        -ms-transition: all 200ms ease-in;
+        -ms-transform: scale(1.05);
+        -moz-transition: all 200ms ease-in;
+        -moz-transform: scale(1.05);
+        transition: all 300ms ease-in;
+        transform: scale(1.05);
+        cursor: pointer;
+        opacity: 1;
+
+    }
+
+
+    /** spotlight **/
+
+    @media (max-width: 700px) {
+        .wrapper {
+            width: 100%;
+            display: grid;
+            grid-gap: 1px;
+            grid-template-columns: 1fr;
+            grid-auto-rows: minmax(150px, auto);
+            grid-template-areas: "m" "m" "f1" "f1" "n1" "n2";
+        }
+
+        .body-content {
+            width: 100%;
+            display: grid;
+            grid-gap: 1px;
+            grid-template-columns: 1fr;
+            grid-auto-rows: minmax(20px, auto);
+            grid-template-areas: "ms" "sp" "s1" "s2";
+        }
+
+        .main-stories {
+            grid-area: ms;
+            margin: 0;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 15px;
+        }
+
+
+
+
+
+    }
+</style>
