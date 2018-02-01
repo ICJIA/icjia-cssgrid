@@ -1,9 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
-import article from "@/pages/article";
-import mosaic from "@/pages/mosaic";
-import layoutSample from "@/pages/layout-sample";
-import splitLanding from "@/pages/split-landing";
+import article from "@/pages/Article";
+import mosaic from "@/pages/Mosaic";
+import layoutSample from "@/pages/Layout-sample";
+import splitLanding from "@/pages/Split-landing";
 
 Vue.use(Router);
 
