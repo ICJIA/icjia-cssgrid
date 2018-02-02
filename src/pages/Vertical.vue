@@ -1,13 +1,36 @@
 <template>
     <section class="page-wrapper">
-        <div class="topnav nav-shadow" id="myTopnav">
-            <a href="#home" class="active">Home</a>
-            <a href="#news">News</a>
-            <a href="#contact">Contact</a>
-            <a href="#about">About</a>
-            <a style="font-size:15px;" class="icon" v-on:click="showDropdown()">&#9776;</a>
+        <div :class="{ ' open ': drawer}" class="overlay">
+            <div class="outer-close toggle-overlay">
+                <a class="close">
+                    <span></span>
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a @click.prevent>About Us</a>
+                    </li>
+                    <li>
+                        <a @click.prevent>Contact</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/ICJIA/icjia-demo-grid-tailwind">GitHub Source</a>
+                    </li>
+
+                </ul>
+            </nav>
         </div>
-        <div class="container xl mx-auto mb-8" style="padding-top: 70px">
+
+
+        <div class="burger">
+            <button class="hamburger hamburger--collapse" :class="{ ' is-active ': drawer}" type="button" @click.stop="toggleDrawer">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </div>
+        <div class="container xl mx-auto mb-8 pt-4">
 
             <div class="body-content">
                 <div class="latest shadow-md pt-8 pl-8 pr-8 pb-8">
@@ -105,11 +128,16 @@
         },
         data: function () {
             return {
-
+                drawer: false
             }
         },
         methods: {
 
+            toggleDrawer: function (e) {
+                this.drawer = !this.drawer;
+                this.drawer ? document.getElementsByClassName("overlay")[0].style.height = "100%" : document.getElementsByClassName("overlay")[0].style.height = "0%"
+                return;
+            },
             showDropdown: function () {
                 var x = document.getElementById("myTopnav");
                 if (x.className === "topnav") {
@@ -124,7 +152,7 @@
     };
 </script>
 
-<style>
+<style scoped>
     .page-wrapper {
         height: 100%
     }
@@ -208,40 +236,130 @@
         -webkit-box-shadow: 2px 5px 8px -2px rgba(156, 154, 156, 0.47);
         -moz-box-shadow: 2px 5px 8px -2px rgba(156, 154, 156, 0.47);
         box-shadow: 2px 5px 8px -2px rgba(156, 154, 156, 0.47);
+        display: flex;
+    }
 
 
+    .burger {
+        background: #eee;
+        width: 50px;
+        vertical-align: middle;
+        position: fixed;
+        top: 10px;
+        left: 10px;
 
+        z-index: 20;
+    }
 
+    .burger,
+    .burger *,
+    button {
+        outline: none !important;
+    }
+
+    .hamburger-inner,
+    .hamburger-inner::before,
+    .hamburger-inner::after {
+        width: 30px;
+        height: 4px;
+        background-color: #555;
+        border-radius: 4px;
+        position: absolute;
+        -webkit-transition-property: -webkit-transform;
+        transition-property: -webkit-transform;
+        transition-property: transform;
+        transition-property: transform, -webkit-transform;
+        -webkit-transition-duration: .15s;
+        transition-duration: .15s;
+        -webkit-transition-timing-function: ease;
+        transition-timing-function: ease;
+    }
+
+    /* The Overlay (background) */
+
+    .overlay {
+        position: fixed;
+        width: 100%;
+        height: 0%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(200deg, rgb(23, 23, 24), rgb(42, 42, 43), rgb(110, 109, 110));
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transition: all .5s ease;
+        transition: all .5s ease;
+        z-index: 0;
 
     }
 
-    .topnav a {
-        float: left;
-        display: block;
-        color: #333;
+    .open {
+        opacity: .98;
+        visibility: visible;
+    }
+
+    nav {
         text-align: center;
-        padding: 14px 16px;
+        height: 100vh;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+
+    nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    nav ul li {
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        line-height: 8vh;
+
+    }
+
+    nav ul li a {
+        font-size: 2em;
+        font-weight: 900;
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        display: block;
         text-decoration: none;
-        font-size: 14px;
-        font-weight: 700;
-        text-transform: uppercase;
+        color: #fff;
+        opacity: 1;
+        display: inline-block;
+        cursor: pointer;
+
+
     }
 
-    .topnav a:hover {
-        background-color: #ddd;
-        color: black;
+    nav ul li a:hover {
+        color: rgb(245, 1, 1);
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+
     }
 
-    .active {
-        background-color: rgb(189, 33, 33);
-        color: white !important;
+    .noscroll {
+        overflow: hidden;
     }
 
-    .topnav .icon {
-        display: none;
+    @media screen and (min-width: 600px) {
+        nav ul li a {
+            font-size: 2em;
+        }
     }
-
-    .nav-shadow {}
 
 
 
