@@ -1,8 +1,37 @@
 <template>
     <div id="mosaic" class="font-sans text-base">
 
-        <div class="burger" style="">
-            <button class="hamburger hamburger--collapse" type="button" :class="{ ' is-active ': drawer}" @click.stop="toggleDrawer">
+
+        <aside :class="{ ' open ': drawer}" class="overlay">
+            <div class="outer-close toggle-overlay">
+                <a class="close">
+                    <span></span>
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a @click.prevent>About Us</a>
+                    </li>
+                    <li>
+                        <a @click.prevent>Contact</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/ICJIA/icjia-demo-grid-tailwind">GitHub Source</a>
+                    </li>
+                    <!-- <li>
+                        <a @click.prevent>Menu Item 3</a>
+                    </li>
+                    <li>
+                        <a @click.prevent>Menu Item 4</a>
+                    </li> -->
+                </ul>
+            </nav>
+        </aside>
+
+
+        <div class="burger">
+            <button class="hamburger hamburger--collapse" :class="{ ' is-active ': drawer}" type="button" @click.stop="toggleDrawer">
                 <span class="hamburger-box">
                     <span class="hamburger-inner"></span>
                 </span>
@@ -193,8 +222,9 @@
         methods: {
 
             toggleDrawer: function (e) {
-
                 this.drawer = !this.drawer;
+                this.drawer ? document.getElementsByClassName("overlay")[0].style.height = "100%" : document.getElementsByClassName("overlay")[0].style.height = "0%"
+
                 return;
             }
 
@@ -374,7 +404,7 @@
     .story-block .photo img {
         min-height: 300px;
         width: 100%;
-        max-height: 300px;
+        /* max-height: 300px; */
     }
 
 
@@ -605,4 +635,88 @@
     }
 
     /* The Overlay (background) */
+
+    .overlay {
+        position: fixed;
+        width: 100%;
+        height: 0%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(200deg, rgb(23, 23, 24), rgb(42, 42, 43), rgb(110, 109, 110));
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transition: all .5s ease;
+        transition: all .5s ease;
+        z-index: 2;
+
+    }
+
+    .open {
+        opacity: .98;
+        visibility: visible;
+    }
+
+    nav {
+        text-align: center;
+        height: 100vh;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+
+    nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    nav ul li {
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        line-height: 8vh;
+
+    }
+
+    nav ul li a {
+        font-size: 2em;
+        font-weight: 900;
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        display: block;
+        text-decoration: none;
+        color: #fff;
+        opacity: 1;
+        display: inline-block;
+        cursor: pointer;
+
+
+    }
+
+    nav ul li a:hover {
+        color: rgb(245, 1, 1);
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+
+    }
+
+    .noscroll {
+        overflow: hidden;
+    }
+
+    @media screen and (min-width: 600px) {
+        nav ul li a {
+            font-size: 2em;
+        }
+    }
 </style>

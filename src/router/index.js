@@ -35,6 +35,6 @@ export default new Router({
       component: splitLanding
     },
 
-    { path: "/*", redirect: article }
+    { path: "/*", redirect: "/article" }
   ]
 });
