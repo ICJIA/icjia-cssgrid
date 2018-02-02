@@ -15,6 +15,8 @@ Vue.use(Meta);
 import VueDummy from "vue-dummy";
 Vue.use(VueDummy);
 
+import "../static/vendor/_sass/hamburgers/hamburgers.scss";
+
 /* eslint-disable no-new */
 new Vue({
   el: "#app",
