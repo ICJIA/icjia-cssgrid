@@ -8,20 +8,13 @@ Vue.use(Router);
 
 export default new Router({
   mode: "history",
+  scrollBehavior(to, from, savedPosition) {
+    return { x: 0, y: 0 };
+  },
   routes: [
     {
       path: "/",
-      redirect: "/article"
-    },
-    {
-      path: "/article",
-      name: "article",
-      component: article
-    },
-    {
-      path: "/mosaic",
-      name: "mosaic",
-      component: mosaic
+      redirect: "/vertical"
     },
     {
       path: "/vertical",
@@ -29,6 +22,18 @@ export default new Router({
       component: vertical
     },
 
-    { path: "/*", redirect: "/article" }
+    {
+      path: "/mosaic",
+      name: "mosaic",
+      component: mosaic
+    },
+
+    {
+      path: "/article",
+      name: "article",
+      component: article
+    },
+
+    { path: "/*", redirect: "/vertical" }
   ]
 });

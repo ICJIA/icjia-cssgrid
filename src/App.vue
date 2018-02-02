@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <navigation />
-    <router-view/>
+    <transition name="fade" mode="out-in">
+      <router-view></router-view>
+    </transition>
 
     <!-- <my-footer /> -->
   </div>
@@ -51,5 +53,15 @@
     background: #eee;
 
 
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.2s
+  }
+
+  .fade-enter,
+  .fade-leave-active {
+    opacity: 0
   }
 </style>
