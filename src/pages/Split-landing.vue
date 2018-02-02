@@ -16,7 +16,7 @@
         <section>
             <div class="mt-8 text-center">
                 <p>A CSS grid version of:
-                    <a href="https://codepen.io/bradtraversy/pen/dJzzdB40">https://codepen.io/bradtraversy/pen/dJzzdB</a>
+                    <a href="https://codepen.io/bradtraversy/pen/dJzzdB">https://codepen.io/bradtraversy/pen/dJzzdB</a>
                 </p>
             </div>
         </section>
