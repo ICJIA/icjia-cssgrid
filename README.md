@@ -5,6 +5,11 @@
 * [Vue.js](https://vuejs.org/)
 * [Tailwind CSS](https://tailwindcss.com/) for UI framework.
 * [Vue-Meta](https://github.com/declandewet/vue-meta) for html meta injection.
+* [Vue-dummy](https://github.com/paulcollett/vue-dummy) for placeholder text and images.
+
+## Demo
+
+https://icjia-cssgrid.netlify.com
 
 ## Build Setup
 
