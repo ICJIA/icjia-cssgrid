@@ -4,13 +4,13 @@
 
         <hero />
 
-        <div class="mt-2 ml-4 mb-8 text-sm">
+        <div class="pt-4 pb-8 pl-4 text-sm citation">
             <p>Based on CSS Grid article layout from:
                 <a href="https://scrimba.com/p/pWqLHa/cdp76sD">https://scrimba.com/p/pWqLHa/cdp76sD</a>
             </p>
         </div>
 
-        <article class="px-1 text-grey-darkest leading-normal">
+        <article class="text-grey-darkest leading-normal">
 
 
             <p v-dummy="50"></p>
@@ -47,7 +47,7 @@
             </p>
 
             <figure>
-                <img src="../assets/hero01-min.jpg" />
+                <img src="http://via.placeholder.com/2550x1050" />
             </figure>
             <h2 v-dummy="10"></h2>
             <p v-dummy="100">
@@ -101,6 +101,11 @@
         grid-template-columns: 250px 1fr 250px;
         grid-column-gap: 10px;
         font-family: "Libre Baskerville", serif;
+        background: #fff;
+    }
+
+    .citation {
+        background: #fff;
     }
 
     article>h1,

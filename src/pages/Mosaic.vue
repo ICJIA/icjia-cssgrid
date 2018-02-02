@@ -19,12 +19,7 @@
                     <li>
                         <a href="https://github.com/ICJIA/icjia-demo-grid-tailwind">GitHub Source</a>
                     </li>
-                    <!-- <li>
-                        <a @click.prevent>Menu Item 3</a>
-                    </li>
-                    <li>
-                        <a @click.prevent>Menu Item 4</a>
-                    </li> -->
+
                 </ul>
             </nav>
         </aside>
@@ -272,7 +267,7 @@
 
     .box.main {
         grid-area: m;
-        /* background-image: url(../assets/TRC.jpg); */
+        background-image: url(http://via.placeholder.com/950x750);
         background-position: bottom right;
         display: grid;
     }
@@ -293,9 +288,9 @@
         font-size: 14px;
     }
 
-    .feature-1 {
+    .box.feature-1 {
         grid-area: f1;
-        /* background-image: url(../assets/VSPNeeds_photo.jpg); */
+        background-image: url(http://via.placeholder.com/950x750);
         background-position: top left;
         display: grid;
         grid-auto-rows: auto;
@@ -326,16 +321,16 @@
 
     }
 
-    .news-1 {
+    .box.news-1 {
         grid-area: n1;
-        /* background-image: url(../assets/Photo-Delivery-Report.jpg); */
-        background-position: top left;
+        background-image: url(http://via.placeholder.com/450X250);
+        background-position: center center;
     }
 
-    .news-2 {
+    .box.news-2 {
         grid-area: n2;
-        /* background-image: url(../assets/assess.jpg); */
-        background-position: top left;
+        background-image: url(http://via.placeholder.com/450X250);
+        background-position: center center;
     }
 
 

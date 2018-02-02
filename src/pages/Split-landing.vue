@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="wrapper">
         <section>
             <div class="container-grid container-grid-equal">
                 <div class="split left">
@@ -30,11 +30,15 @@
     };
 </script>
 
-<style>
+<style scoped>
     :root {
         --container-bg-color: #ccc;
         --left-button-hover-color: rgba(161, 11, 11, 0.3);
         --right-button-hover-color: rgba(92, 92, 92, 0.3);
+    }
+
+    .wrapper {
+        height: 100vh;
     }
 
     .container-grid {
@@ -56,7 +60,8 @@
 
     .split.left {
         left: 0;
-        background: url("../assets/designer.jpg") center center no-repeat;
+        background-image: url(http://via.placeholder.com/1850X1250);
+        background-position: center center;
         background-size: cover;
         display: grid;
         grid-template-columns: 1fr;
@@ -100,7 +105,8 @@
 
     .split.right {
         right: 0;
-        background: url("../assets/programmer.png") center center no-repeat;
+        background-image: url(http://via.placeholder.com/1850X1250);
+        background-position: center center;
         background-size: cover;
         display: grid;
     }

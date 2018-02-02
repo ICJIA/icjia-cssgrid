@@ -107,6 +107,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       children: true,
       minChunks: 3
     }),
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/), // to not to load all locales
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, "../_redirects"),
