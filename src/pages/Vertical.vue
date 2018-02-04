@@ -30,7 +30,7 @@
                 </span>
             </button>
         </div>
-        <div class="container xl mx-auto mb-8" style="padding-top: 60px">
+        <div class="container xl mx-auto mb-8" style="padding-top: 30px">
 
             <div class="body-content">
                 <div class="latest shadow-md pt-8 pl-8 pr-8 pb-8">
@@ -71,7 +71,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-2 text-sm">Inspired by
+            <div class="mt-2 text-sm">CSS grid experiment inspired by
                 <a href="http://www.axios.com" class="link">Axios</a>
             </div>
         </div>
