@@ -30,7 +30,7 @@
                 </span>
             </button>
         </div>
-        <div class="container xl mx-auto mb-8 pt-4">
+        <div class="container xl mx-auto mb-8" style="padding-top: 60px">
 
             <div class="body-content">
                 <div class="latest shadow-md pt-8 pl-8 pr-8 pb-8">
@@ -80,327 +80,301 @@
 </template>
 
 <script>
-    let faker = require('faker/locale/en');
-    var differenceInDays = require('date-fns/difference_in_days')
-    var differenceInCalendarWeeks = require('date-fns/difference_in_calendar_weeks')
+let faker = require("faker/locale/en");
+var differenceInDays = require("date-fns/difference_in_days");
+var differenceInCalendarWeeks = require("date-fns/difference_in_calendar_weeks");
 
+export default {
+  name: "Vertical",
+  mounted: function() {
+    let latestPostTime = this.$refs.datetime;
+    let dateArray = [];
+    let now = new Date();
+    let pastText;
+    for (let i = 0; i < latestPostTime.length; i++) {
+      dateArray.push(faker.date.past());
+    }
+    let sortedDates = dateArray.sort(function(a, b) {
+      return b - a;
+    });
+    latestPostTime.map(function(el, idx) {
+      let pastDate = sortedDates[idx];
+      let weeksAgo = differenceInCalendarWeeks(now, pastDate);
 
-    export default {
-        name: "Vertical",
-        mounted: function () {
+      let daysAgo = differenceInDays(now, pastDate);
+      /**
+       * TODO: Check for 'day' or 'days', etc.
+       *
+       */
 
-            let latestPostTime = this.$refs.datetime
-            let dateArray = [];
-            let now = new Date();
-            let pastText;
-            for (let i = 0; i < latestPostTime.length; i++) {
-                dateArray.push(faker.date.past())
-            }
-            let sortedDates = dateArray.sort(function (a, b) {
-                return b - a
-            });
-            latestPostTime.map(function (el, idx) {
-                let pastDate = sortedDates[idx];
-                let weeksAgo = differenceInCalendarWeeks(
-                    now,
-                    pastDate
-                )
+      if (weeksAgo < 2) {
+        pastText = daysAgo + " days ago";
+      } else {
+        pastText = weeksAgo + " weeks ago";
+      }
 
-                let daysAgo = differenceInDays(
-                    now,
-                    pastDate
-                )
-                /**
-                 * TODO: Check for 'day' or 'days', etc.
-                 *
-                 */
-
-                if (weeksAgo < 2) {
-                    pastText = daysAgo + ' days ago'
-                } else {
-                    pastText = weeksAgo + ' weeks ago'
-                }
-
-                el.innerHTML = pastText;
-            })
-
-
-        },
-        data: function () {
-            return {
-                drawer: false
-            }
-        },
-        methods: {
-
-            toggleDrawer: function (e) {
-                this.drawer = !this.drawer;
-                this.drawer ? document.getElementsByClassName("overlay")[0].style.height = "100%" : document.getElementsByClassName("overlay")[0].style.height = "0%"
-                return;
-            },
-            showDropdown: function () {
-                var x = document.getElementById("myTopnav");
-                if (x.className === "topnav") {
-                    x.className += " responsive";
-                } else {
-                    x.className = "topnav";
-                }
-
-            }
-
-        }
+      el.innerHTML = pastText;
+    });
+  },
+  data: function() {
+    return {
+      drawer: false
     };
+  },
+  methods: {
+    toggleDrawer: function(e) {
+      this.drawer = !this.drawer;
+      this.drawer
+        ? (document.getElementsByClassName("overlay")[0].style.height = "100%")
+        : (document.getElementsByClassName("overlay")[0].style.height = "0%");
+      return;
+    },
+    showDropdown: function() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+  }
+};
 </script>
 
 <style scoped>
-    .page-wrapper {
-        height: 100%
-    }
+.page-wrapper {
+  height: 100%;
+}
 
-    .body-content {
-        display: grid;
-        grid-auto-rows: minmax(200px, auto);
-        grid-template-columns: 1fr 2fr;
-        grid-gap: 5px;
+.body-content {
+  display: grid;
+  grid-auto-rows: minmax(200px, auto);
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 5px;
+}
 
-    }
+.latest {
+  background: #fff;
+}
 
-    .latest {
-        background: #fff;
+.top {
+  background: #fff;
+}
 
-    }
+.main-header {
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
-    .top {
-        background: #fff;
-    }
+.main-item p {
+  display: inline;
+}
 
-    .main-header {
-        border-bottom: 1px solid #ccc;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+.main-header a {
+  margin: 5px;
+}
 
-    }
+.card img {
+  min-height: 400px;
+}
 
-    .main-item p {
-        display: inline;
-    }
+a.link {
+  color: #333;
+  transition: all 250ms linear;
+}
 
-    .main-header a {
+a.link:hover {
+  cursor: pointer;
+  color: red;
+}
 
-        margin: 5px;
+.card:hover {
+  filter: grayscale(100%);
+  box-shadow: 0px 0px 50px #000000;
+  z-index: 200;
+  -webkit-transition: all 200ms ease-in;
+  -webkit-transform: scale(1.05);
+  -ms-transition: all 200ms ease-in;
+  -ms-transform: scale(1.05);
+  -moz-transition: all 200ms ease-in;
+  -moz-transform: scale(1.05);
+  transition: all 300ms ease-in;
+  transform: scale(1.05);
+  cursor: pointer;
+  opacity: 1;
+}
 
-    }
+.topnav {
+  overflow: hidden;
+  background-color: #fff;
+  top: 0;
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  -webkit-box-shadow: 2px 5px 8px -2px rgba(156, 154, 156, 0.47);
+  -moz-box-shadow: 2px 5px 8px -2px rgba(156, 154, 156, 0.47);
+  box-shadow: 2px 5px 8px -2px rgba(156, 154, 156, 0.47);
+  display: flex;
+}
 
-    .card img {
-        min-height: 400px;
-    }
+.burger {
+  background: #eee;
+  width: 50px;
+  vertical-align: middle;
+  position: fixed;
+  top: 2px;
+  left: 2px;
 
-    a.link {
-        color: #333;
-        transition: all 250ms linear;
-    }
+  z-index: 20;
+}
 
-    a.link:hover {
-        cursor: pointer;
-        color: red;
-    }
+.burger,
+.burger *,
+button {
+  outline: none !important;
+}
 
-    .card:hover {
-        filter: grayscale(100%);
-        box-shadow: 0px 0px 50px #000000;
-        z-index: 200;
-        -webkit-transition: all 200ms ease-in;
-        -webkit-transform: scale(1.05);
-        -ms-transition: all 200ms ease-in;
-        -ms-transform: scale(1.05);
-        -moz-transition: all 200ms ease-in;
-        -moz-transform: scale(1.05);
-        transition: all 300ms ease-in;
-        transform: scale(1.05);
-        cursor: pointer;
-        opacity: 1;
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  width: 30px;
+  height: 4px;
+  background-color: #555;
+  border-radius: 4px;
+  position: absolute;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+}
 
-    }
+/* The Overlay (background) */
 
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 0%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    200deg,
+    rgb(23, 23, 24),
+    rgb(42, 42, 43),
+    rgb(110, 109, 110)
+  );
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  z-index: 0;
+}
 
+.open {
+  opacity: 0.98;
+  visibility: visible;
+}
 
-    .topnav {
-        overflow: hidden;
-        background-color: #fff;
-        top: 0;
-        z-index: 100;
-        position: fixed;
-        width: 100%;
-        border-bottom: 1px solid #ccc;
-        -webkit-box-shadow: 2px 5px 8px -2px rgba(156, 154, 156, 0.47);
-        -moz-box-shadow: 2px 5px 8px -2px rgba(156, 154, 156, 0.47);
-        box-shadow: 2px 5px 8px -2px rgba(156, 154, 156, 0.47);
-        display: flex;
-    }
+nav {
+  text-align: center;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
 
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
-    .burger {
-        background: #eee;
-        width: 50px;
-        vertical-align: middle;
-        position: fixed;
-        top: 10px;
-        left: 10px;
+nav ul li {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  line-height: 8vh;
+}
 
-        z-index: 20;
-    }
+nav ul li a {
+  font-size: 2em;
+  font-weight: 900;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  opacity: 1;
+  display: inline-block;
+  cursor: pointer;
+}
 
-    .burger,
-    .burger *,
-    button {
-        outline: none !important;
-    }
+nav ul li a:hover {
+  color: rgb(245, 1, 1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
 
-    .hamburger-inner,
-    .hamburger-inner::before,
-    .hamburger-inner::after {
-        width: 30px;
-        height: 4px;
-        background-color: #555;
-        border-radius: 4px;
-        position: absolute;
-        -webkit-transition-property: -webkit-transform;
-        transition-property: -webkit-transform;
-        transition-property: transform;
-        transition-property: transform, -webkit-transform;
-        -webkit-transition-duration: .15s;
-        transition-duration: .15s;
-        -webkit-transition-timing-function: ease;
-        transition-timing-function: ease;
-    }
+.noscroll {
+  overflow: hidden;
+}
 
-    /* The Overlay (background) */
+@media screen and (min-width: 600px) {
+  nav ul li a {
+    font-size: 2em;
+  }
+}
 
-    .overlay {
-        position: fixed;
-        width: 100%;
-        height: 0%;
-        top: 0;
-        left: 0;
-        background: linear-gradient(200deg, rgb(23, 23, 24), rgb(42, 42, 43), rgb(110, 109, 110));
-        opacity: 0;
-        visibility: hidden;
-        -webkit-transition: all .5s ease;
-        transition: all .5s ease;
-        z-index: 0;
+@media screen and (max-width: 700px) {
+  .topnav a:not(:first-child) {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
 
-    }
+@media screen and (max-width: 700px) {
+  .topnav.responsive {
+    position: relative;
+  }
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
 
-    .open {
-        opacity: .98;
-        visibility: visible;
-    }
-
-    nav {
-        text-align: center;
-        height: 100vh;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-    }
-
-    nav ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-    }
-
-    nav ul li {
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        -webkit-box-flex: 1;
-        -ms-flex: 1;
-        flex: 1;
-        line-height: 8vh;
-
-    }
-
-    nav ul li a {
-        font-size: 2em;
-        font-weight: 900;
-        -webkit-transition: all 0.5s ease;
-        transition: all 0.5s ease;
-        display: block;
-        text-decoration: none;
-        color: #fff;
-        opacity: 1;
-        display: inline-block;
-        cursor: pointer;
-
-
-    }
-
-    nav ul li a:hover {
-        color: rgb(245, 1, 1);
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
-
-    }
-
-    .noscroll {
-        overflow: hidden;
-    }
-
-    @media screen and (min-width: 600px) {
-        nav ul li a {
-            font-size: 2em;
-        }
-    }
-
-
-
-    @media screen and (max-width: 700px) {
-        .topnav a:not(:first-child) {
-            display: none;
-        }
-        .topnav a.icon {
-            float: right;
-            display: block;
-        }
-    }
-
-    @media screen and (max-width: 700px) {
-        .topnav.responsive {
-            position: relative;
-
-        }
-        .topnav.responsive .icon {
-            position: absolute;
-            right: 0;
-            top: 0;
-        }
-        .topnav.responsive a {
-            float: none;
-            display: block;
-            text-align: left;
-
-        }
-
-    }
-
-    @media (max-width: 700px) {
-        .body-content {
-            display: grid;
-            grid-auto-rows: minmax(200px, auto);
-            grid-template-columns: 1fr;
-            grid-gap: 5px;
-            padding-left: 15px;
-            padding-right: 15px;
-
-        }
-    }
+@media (max-width: 700px) {
+  .body-content {
+    display: grid;
+    grid-auto-rows: minmax(200px, auto);
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
 </style>
