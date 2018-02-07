@@ -3,6 +3,7 @@ import Router from "vue-router";
 import article from "@/pages/Article";
 import mosaic from "@/pages/Mosaic";
 import vertical from "@/pages/Vertical";
+import tableau from "@/pages/tableau";
 
 Vue.use(Router);
 
@@ -21,6 +22,11 @@ export default new Router({
       name: "vertical",
       component: vertical
     },
+    {
+      path: "/tableau",
+      name: "tableau",
+      component: tableau
+    },
 
     {
       path: "/mosaic",
@@ -33,6 +39,7 @@ export default new Router({
       name: "article",
       component: article
     },
+
 
     { path: "/*", redirect: "/vertical" }
   ]

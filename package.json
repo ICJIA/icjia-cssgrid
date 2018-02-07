@@ -5,13 +5,11 @@
   "author": "Chris Schweda <cschweda@gmail.com>",
   "private": true,
   "scripts": {
-    "dev":
-      "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js",
-    "format":
-      "prettier es5 --tab-width=4 --print-width=120 --write src/**/*.{js,vue}"
+    "format": "prettier es5 --tab-width=4 --print-width=120 --write src/**/*.{js,vue}"
   },
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.3",
@@ -28,6 +26,7 @@
     "prismjs": "^1.10.0",
     "sass-loader": "^6.0.6",
     "tailwindcss": "^0.4.1",
+    "uuid": "^3.2.1",
     "vue": "^2.5.2",
     "vue-dummy": "^1.1.1",
     "vue-meta": "^1.4.2",
@@ -81,5 +80,9 @@
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
   },
-  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"]
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }
